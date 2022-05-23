@@ -1,0 +1,71 @@
+<!--div class="main-container">
+    <div class="form-container">
+        <h1>Petición de residencia lunar</h1>
+        <form [formGroup]="formEstudiante" (ngSubmit)="submit()">
+            <div class="form-group">
+                <label>Nombre terrestre</label>
+                <input type="text" id="name" formControlName="name" class="form-control">
+                <div *ngIf="formEstudiante.get('name')?.errors?.['required'] && !formEstudiante.get('name')?.pristine">Campo requerido</div>
+                <div *ngIf="formEstudiante.get('name')?.errors?.['minlength']">Mínimo 3 caracteres</div>
+            </div>
+            <div class="form-group">
+                <label>Edad</label>
+                <input type="text" id="age" formControlName="age" class="form-control">
+                <div *ngIf="formEstudiante.get('age')?.errors?.['required'] && !formEstudiante.get('age')?.pristine" class="alert alert-danger">Mínimo 3 caracteres</div>
+            </div>
+            <div class="form-group">
+                <label>Curso</label>
+                <input type="text" id="course" formControlName="course" class="form-control">
+                <div *ngIf="formEstudiante.get('course')?.errors?.['required'] && !formEstudiante.get('course')?.pristine">Campo requerido</div>
+                <div *ngIf="formEstudiante.get('course')?.errors?.['minlength']">Mínimo 3 caracteres</div>
+            </div>
+            <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+    </div>
+</div-->
+
+<div class="main-container">
+    <div class="main-container-row">
+        <div class="main-container-cell">
+            <div class="form-container">
+                <h2>¿Te gustaría visitar Marte?</h2>
+                <p>Por favor, llena los siguiente campos.</p>
+                <form [formGroup]="formEstudiante" (ngSubmit)="submit()">
+                    <div class="form-group">
+                        <label>Nombre terrestre</label>
+                        <input type="text" id="name" formControlName="name" class="form-control" placeholder="Ejemplo: María Pérez">
+                        <div *ngIf="formEstudiante.get('name')?.errors?.['required'] && !formEstudiante.get('name')?.pristine" class="alert alert-danger">Campo requerido</div>
+                        <div *ngIf="formEstudiante.get('name')?.errors?.['minlength']" class="alert alert-danger">Mínimo 3 caracteres</div>
+                        <div *ngIf="formEstudiante.get('name')?.errors?.['forbiddenName']" class="alert alert-danger">Nombre no puede ser "Marte" o "Kratos"</div>
+                    </div>
+                    <div class="form-group">
+                        <label>Edad terrestre</label>
+                        <input type="text" id="age" formControlName="age" class="form-control" placeholder="Ejemplo: 25 años">
+                        <div *ngIf="formEstudiante.get('age')?.errors?.['required'] && !formEstudiante.get('age')?.pristine" class="alert alert-danger">Campo requerido</div>
+                    </div>
+                    <!--div class="form-group">
+                        <label>Sector marciano deseado</label>
+                        <select id="sector" formControlName="sector" class="form-control">
+                            <option>Seleccione una opción</option>
+                            <option>Sector verde</option>
+                            <option>Sector azul</option>
+                            <option>Sector rojo</option>
+                            <option>Sector café</option>
+                        </select>
+                        <div *ngIf="formEstudiante.get('sector')?.errors?.['required'] && !formEstudiante.get('sector')?.pristine" class="alert alert-danger">Campo requerido</div>
+                    </div-->
+                    <div class="form-group">
+                        <label>Periodo de visita (No más de 9 ciclos marcianos)</label>
+                        <input type="number" id="period" name="period" class="form-control" min="1" max="9" formControlName="period">
+                        <div *ngIf="formEstudiante.get('period')?.errors?.['required'] && !formEstudiante.get('period')?.pristine" class="alert alert-danger">Campo requerido</div>
+                    </div>
+                    <!--div class="form-group">
+                        <label>Marcar en caso de requerir de criogenización durante el viaje.</label>
+                        <input type="checkbox" class="form-check" id="crio" formControlName="crio">
+                    </div-->        
+                    <button type="submit" class="btn form-control">Enviar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

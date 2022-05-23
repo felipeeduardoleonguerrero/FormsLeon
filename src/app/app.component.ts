@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
+import { FormularioUnoComponent } from './formulario-uno/formulario-uno.component';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'FormsLeon';
+  @ViewChild('myTestComponent') myTestComponent:FormularioUnoComponent;
+  probarTestComponent(){
+    console.log(this.myTestComponent);
+  }
 }

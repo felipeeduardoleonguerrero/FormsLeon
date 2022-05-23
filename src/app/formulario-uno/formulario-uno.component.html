@@ -1,0 +1,12 @@
+<form [formGroup]="formularioContacto" (ngSubmit)="submit()">
+    Nombre: <input type="text" formControlName="name">
+    <span *ngIf="formularioContacto.get('name')?.errors?.['required']">Campo requerido</span>
+    <span *ngIf="formularioContacto.get('name')?.errors?.['minlength']">Mínimo tres caracteres requeridos</span>
+    Email: <input type="text" formControlName="email">
+    Mensaje: <input type="text" formControlName="message">
+    <span *ngIf="formularioContacto.get('message')?.errors?.['maxlength']">Máximo 10 caracteres</span>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+<div #myTestDiv>
+    {{formularioContacto.value | json}}
+</div>
